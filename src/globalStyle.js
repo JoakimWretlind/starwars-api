@@ -33,6 +33,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     
     body {
+      overflow-x: hidden;
       box-sizing: border-box;
       font-family: 'Michroma', sans-serif;
       background: #000000;

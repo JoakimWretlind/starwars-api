@@ -29,8 +29,12 @@ const SingleCharacter = () => {
             .catch((error) => console.log(error));
     }, [characterId]);
 
+    /** I changed the return from returning a loader to an empty string,
+     * because I think th eempty string gives a smoother transition and
+     * the fetch is rather quick.
+     */
     if (loading) {
-        return <Loader />
+        return ""
     }
 
     return (

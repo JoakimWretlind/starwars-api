@@ -1,22 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import useFetch from '../../components/hooks/useFetch';
 import {
-    Section,
-    Overlay,
-    Pane,
-    MainSection,
-    ButtonSection,
-    ListSection,
-    Header,
-    Input,
-    Select,
-    Card,
-    CardHeader,
-    PSmall,
-    HomeLink,
-    RightShort,
-    CardListHeader,
+    Section, Overlay, Pane, MainSection, ButtonSection, ListSection, Header,
+    Input, Select, Card, CardHeader, PSmall, HomeLink, RightShort, CardListHeader,
     DetailButton
 } from '../sharedStyling';
 
@@ -47,12 +34,13 @@ const Characters = () => {
     });
 
     return (
-        <Section as={motion.div}
-            initial={{ scaleX: 0, x: "-60vw" }}
-            animate={{ scaleX: 1, x: "0" }}
-            exit={{ scaleX: 0, x: "-60vw" }}
-            transition={{ duration: 0.5 }} id="characters">
-            <Overlay>
+        <Section >
+            <Overlay
+                as={motion.div}
+                initial={{ scaleX: 0, x: "-60vw" }}
+                animate={{ scaleX: 1, x: "0" }}
+                exit={{ scaleX: 0, x: "-60vw" }}
+                transition={{ duration: 0.5 }} id="characters">
                 <Pane />
                 <MainSection id="characters">
                     <Header>Characters</Header>
@@ -101,16 +89,3 @@ const Characters = () => {
 }
 
 export default Characters
-
-/**
- *
- * {!isLoading &&
-                data.map((person, index) => {
-                    return (
-                        <div key={index}>
-                            <p>{person.name}</p>
-                            <Link to={`/character/${index + 1}`}>details</Link>
-                        </div>
-                    );
-                })}
- */

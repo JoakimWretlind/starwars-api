@@ -8,30 +8,11 @@ import yellowStar from '../../assets/images/yellowPlanet.png';
 import blueStar from '../../assets/images/bluePlanet.png';
 import jupiter from '../../assets/videos/jupiter.mp4';
 import {
-    Section,
-    Overlay,
-    Pane,
-    MainSection,
-    ButtonSection,
-    ListSection,
-    Header,
-    Input,
-    Select,
-    Card,
-    HomeLink,
-    LeftShort,
-    DetailButton,
-    CardHeader,
-    PSmall,
-    CardListHeader
+    Section, Overlay, Pane, MainSection, ButtonSection, ListSection, Header,
+    Input, Select, Card, HomeLink, LeftShort, DetailButton, CardHeader,
+    PSmall, CardListHeader
 } from '../sharedStyling';
-import {
-    YellowPlanet,
-    YellowImg,
-    BluePlanet,
-    BlueImg,
-    JupiterVid
-} from './planets-style';
+import { YellowPlanet, YellowImg, BluePlanet, BlueImg, JupiterVid } from './planets-style';
 
 
 const Planets = () => {
@@ -53,7 +34,7 @@ const Planets = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    /** Gsap ansimations for the planets **/
+    /** Gsap animations for the planets **/
     useEffect(() => {
         gsap.fromTo(yellowRef.current, 1.7, {
             x: "50vw",
@@ -83,6 +64,7 @@ const Planets = () => {
     const handleSort = (e) => {
         setSorted(e.target.value)
     };
+
 
     // sort according to the correct buttonClick.
     // if letter a is before letter b... and vice versa

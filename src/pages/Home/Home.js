@@ -1,30 +1,10 @@
 import { motion } from 'framer-motion';
 import { Section, PSmall, PWide, PXWide } from "../sharedStyling";
-import { Link } from "react-router-dom";
-import styled from 'styled-components';
 import {
-    InnerHome,
-    Video,
-    LeftPane,
-    RightPane,
-    Overlay,
-    HeaderContainer,
-    MainHeader,
-    ButtonContainer,
-    CharachtersLink,
-    PlanetsLink,
-    ArrowLeft,
-    ArrowRight
+    InnerHome, Video, LeftPane, RightPane, Overlay, HeaderContainer, MainHeader,
+    ButtonContainer, CharachtersLink, PlanetsLink, ArrowLeft, ArrowRight
 } from "./home.style";
 import MoonVid from '../../assets/videos/moon.mp4';
-
-export const Links = styled(Link)`
-    height: min-content;
-    margin: .5rem 0 1rem;
-    font-size: 1.6rem;
-    color: blue;
-    text-transform: uppercase;
-`;
 
 const Home = () => {
     const pageVariants = {

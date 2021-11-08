@@ -40,7 +40,7 @@ const SinglePlanet = () => {
     }, [planetId]);
 
     if (loading) {
-        return <Loader />
+        return ""
     }
 
     return (

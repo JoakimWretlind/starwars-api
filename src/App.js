@@ -3,6 +3,7 @@ import { AnimatePresence } from 'framer-motion';
 import { ThemeProvider } from 'styled-components';
 import { mainTheme, GlobalStyle } from './globalStyle';
 import { Home, Planets, SinglePlanet, Characters, SingleCharacter, Error } from './pages/index';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 function App() {
   const location = useLocation();
@@ -10,6 +11,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
+      <ScrollToTop />
       <ThemeProvider theme={mainTheme}>
         <AnimatePresence exitBeforeEnter initial={false}>
           <Routes location={location} key={location.pathname}>

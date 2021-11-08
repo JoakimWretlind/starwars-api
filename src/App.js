@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+import { ThemeProvider } from 'styled-components';
+import { mainTheme, GlobalStyle } from './globalStyle';
+import { Home, Planets, SinglePlanet, Characters, SingleCharacter, Error } from './pages/index';
 
 function App() {
+  const location = useLocation();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <ThemeProvider theme={mainTheme}>
+        <AnimatePresence exitBeforeEnter initial={false}>
+          <Routes location={location} key={location.pathname}>
+            <Route path='/' element={<Home />} />
+            <Route path="/planets" element={<Planets />} />
+            <Route path="/planet/:planetId" element={<SinglePlanet />} />
+            <Route path='/characters' element={<Characters />} />
+            <Route path='/character/:characterId' element={<SingleCharacter />} />
+            <Route path='*' element={<Error />} />
+          </Routes>
+        </AnimatePresence>
+      </ThemeProvider>
+    </>
   );
 }
 

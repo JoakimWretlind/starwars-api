@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useFetch = (url, li) => {
+const useFetch = (url, items) => {
     const [data, setData] = useState([]);
     const [error, setErrors] = useState('');
 
@@ -8,13 +8,15 @@ const useFetch = (url, li) => {
         const fetchData = async () => {
             try {
                 const promises = [];
-                for (let i = 1; i < 60 + 1; i++) {
+                for (let i = 1; i < items; i++) {
+                    console.log(items)
                     promises
                         .push(
                             fetch(`${url}${i}`)
                                 .then(res => res.json())
                         );
                 }
+
                 Promise.all(promises)
                     .then((data) => {
                         if (!data) {

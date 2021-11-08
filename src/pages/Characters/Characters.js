@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import useFetch from '../../components/hooks/useFetch';
 import {
     Section,
     Overlay,
@@ -20,8 +21,7 @@ import {
 } from '../sharedStyling';
 
 const Characters = () => {
-    const [people, setPeoples] = useState([]);
-    const [setErrors] = useState('');
+    const { data: people } = useFetch(`https://swapi.py4e.com/api/people/`, 87);
     const [searchTerm, setSearchTerm] = useState('');
     const [sorted, setSorted] = useState('');
 
@@ -45,42 +45,6 @@ const Characters = () => {
             return true
         }
     });
-
-    // Get all characters
-    useEffect(() => {
-        const fetchCharacter = async () => {
-            try {
-                const promises = [];
-                // there are 87 characters. Get them all and push
-                // them in the promises array
-                for (let i = 1; i < 87 + 1; i++) {
-                    promises
-                        .push(
-                            fetch(`https://swapi.py4e.com/api/people/${i}`)
-                                .then(res => res.json())
-                        );
-                }
-                // handle errors
-                Promise.all(promises)
-                    .then((data) => {
-                        if (!data) {
-                            setErrors(data)
-                        }
-                        // Add id to every object. This is important, so
-                        // that we get the right person when we have sorted
-                        // and want to see details
-                        for (let i = 0; i < data.length; i++) {
-                            data[i]["id"] = i;
-                        }
-                        setPeoples(data)
-                    })
-            }
-            catch (err) {
-                console.log(err)
-            }
-        };
-        fetchCharacter()
-    }, [setErrors]);
 
     return (
         <Section as={motion.div}

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import useFetch from '../../components/hooks/useFetch';
 import { motion } from 'framer-motion';
 import { gsap } from "gsap";
 // To easier handle numberformatting, I use numeral
@@ -31,21 +32,22 @@ import {
     BlueImg,
     JupiterVid
 } from './planets-style';
-import useFetch from '../../components/hooks/useFetch';
+
 
 const Planets = () => {
     // info for our custom hook
-    const { data: planets } = useFetch(`https://swapi.py4e.com/api/planets/`);
+    const { data: planets } = useFetch(`https://swapi.py4e.com/api/planets/`, 61);
+    // animations
     const yellowRef = useRef(null);
     const blueRef = useRef(null);
-    // setStates    
+    // state
     const [searchTerm, setSearchTerm] = useState('');
     const [sorted, setSorted] = useState('');
     const [offsetY, setOffsetY] = useState(0);
+
     // handle parallax effect
     const handleScroll = () => setOffsetY(window.pageYOffset);
 
-    // Listen to the scroll for parallax effect
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);

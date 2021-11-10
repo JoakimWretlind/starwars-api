@@ -2,10 +2,10 @@ import { useState } from 'react';
 // animations
 import { motion } from 'framer-motion';
 import useFetch from '../../components/hooks/useFetch';
+import Card from '../../components/Cards/CharactersCards';
 import {
     Section, Overlay, Pane, MainSection, ButtonSection, ListSection, Header,
-    Input, Select, Card, CardHeader, PSmall, HomeLink, RightShort, CardListHeader,
-    DetailButton
+    Input, Select, HomeLink, LeftShort
 } from '../sharedStyling';
 
 const Characters = () => {
@@ -61,7 +61,7 @@ const Characters = () => {
                             <option value="from-Z">Name Z-A</option>
                         </Select>
                     </ButtonSection>
-                    <HomeLink to="/">Get Back Home<RightShort /></HomeLink>
+                    <HomeLink to="/"><LeftShort />Get Back Home</HomeLink>
                     <ListSection >
                         {/** Make items searchable **/}
                         {people.filter(item => {
@@ -75,12 +75,7 @@ const Characters = () => {
                             }
                         }).map((item, index) => {
                             return (
-                                <Card key={index}>
-                                    <CardHeader>{item.name}</CardHeader>
-                                    <PSmall>height</PSmall>
-                                    <CardListHeader>{item.height}</CardListHeader>
-                                    <DetailButton id="charDetail" to={`/character/${item.id + 1}`}>details</DetailButton>
-                                </Card>
+                                <Card key={index} {...item} />
                             )
                         })}
                     </ListSection>

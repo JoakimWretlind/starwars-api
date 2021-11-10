@@ -3,16 +3,16 @@ import useFetch from '../../components/hooks/useFetch';
 // For animations
 import { motion } from 'framer-motion';
 import { gsap } from "gsap";
-// To easier handle numberformatting, I use numeral
-import numeral from 'numeral';
+// Import the Cards
+import Card from '../../components/Cards/PlanetsCard';
 // Images
 import yellowStar from '../../assets/images/yellowPlanet.png';
 import blueStar from '../../assets/images/bluePlanet.png';
 import jupiter from '../../assets/videos/jupiter.mp4';
+// Get general styling
 import {
-    Section, Overlay, Pane, MainSection, ButtonSection, ListSection, Header,
-    Input, Select, Card, HomeLink, LeftShort, DetailButton, CardHeader,
-    PSmall, CardListHeader
+    Section, Overlay, Pane, MainSection, ButtonSection, ListSection,
+    Header, Input, Select, HomeLink, RightShort
 } from '../sharedStyling';
 import { YellowPlanet, YellowImg, BluePlanet, BlueImg, JupiterVid } from './planets-style';
 
@@ -130,7 +130,7 @@ const Planets = () => {
                             <option value="from-Z">Name Z-A</option>
                         </Select>
                     </ButtonSection>
-                    <HomeLink to="/"><LeftShort />Get Back Home</HomeLink>
+                    <HomeLink to="/">Get Back Home<RightShort /></HomeLink>
                     <ListSection >
                         {/** filter the items, from the search. Make all
                          * letters to lowercase to avoid any problem if
@@ -147,15 +147,7 @@ const Planets = () => {
                             }
                         }).map((item, index) => {
                             return (
-                                <Card key={index}>
-                                    <CardHeader>{item.name}</CardHeader>
-                                    <PSmall>population</PSmall>
-                                    {/** Make use of numeral that was imported at top.
-                                     * Makes it easier for the user to read.
-                                     */}
-                                    <CardListHeader>{numeral(item.population).format("0,0")}</CardListHeader>
-                                    <DetailButton to={`/planet/${item.id + 1}`}>details</DetailButton>
-                                </Card>
+                                <Card key={index} {...item} />
                             )
                         })}
                     </ListSection>

@@ -1,18 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import { motion } from 'framer-motion';
-import Loader from '../../components/Loader/Loader';
-import {
-    SingleSection,
-    Pane,
-    MiddlePaneCard,
-    CardOver,
-    SingleCardHeader,
-    SingleCard,
-    CardListHeader,
-    PSmall,
-    BackLinks
-} from '../sharedStyling';
+import { SingleSection, Pane, MiddlePaneCard, CardOver } from '../sharedStyling';
+import SingleCard from '../../components/Cards/SingleCharacterCard';
 
 const SingleCharacter = () => {
     const [loading, setLoading] = useState(true)
@@ -30,8 +20,8 @@ const SingleCharacter = () => {
     }, [characterId]);
 
     /** I changed the return from returning a loader to an empty string,
-     * because I think th eempty string gives a smoother transition and
-     * the fetch is rather quick.
+     * because I think the empty gives a smoother transition (and
+     * the fetch is rather quick).
      */
     if (loading) {
         return ""
@@ -46,27 +36,7 @@ const SingleCharacter = () => {
             <Pane />
             <MiddlePaneCard id="charMiddlePane">
                 <CardOver>
-                    <SingleCard id="singleChar">
-                        <>
-                            <SingleCardHeader>{data.name}</SingleCardHeader>
-                            <PSmall>Height</PSmall>
-                            <CardListHeader>{data.height}</CardListHeader>
-                            <PSmall>Mass</PSmall>
-                            <CardListHeader>{data.mass}</CardListHeader>
-                            <PSmall>Hair Color</PSmall>
-                            <CardListHeader>{data.hair_color}</CardListHeader>
-                            <PSmall>Skin Color</PSmall>
-                            <CardListHeader>{data.skin_color}</CardListHeader>
-                            <PSmall>Eye Color</PSmall>
-                            <CardListHeader>{data.eye_color}</CardListHeader>
-                            <PSmall>Birth Year</PSmall>
-                            <CardListHeader>{data.birth_year}</CardListHeader>
-                            <PSmall>Gender</PSmall>
-                            <CardListHeader>{data.gender}</CardListHeader>
-                            <BackLinks id="charBack" to="/characters">Back to Characters</BackLinks>
-                            <BackLinks id="charBack" to="/">Back to homepage</BackLinks>
-                        </>
-                    </SingleCard>
+                    <SingleCard id="singleChar" {...data} />
                 </CardOver>
             </MiddlePaneCard>
             <Pane />

@@ -1,4 +1,5 @@
-import { Card, CardHeader, PSmall, CardListHeader, DetailButton } from '../../pages/sharedStyling';
+import { PSmall } from '../../pages/sharedStyling';
+import { CardListHeader, Card, DetailButton, CardHeader } from './styling';
 
 const CharactersCard = ({ name, height, id }) => {
     return (

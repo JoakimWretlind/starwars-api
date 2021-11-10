@@ -1,8 +1,7 @@
 // To easier handle numberformatting, I use numeral
 import numeral from 'numeral';
-import {
-    Card, CardHeader, PSmall, CardListHeader, DetailButton
-} from '../../pages/sharedStyling';
+import { PSmall } from '../../pages/sharedStyling';
+import { CardListHeader, Card, DetailButton, CardHeader } from './styling';
 
 const PlanetsCard = ({ name, population, id }) => {
     return (

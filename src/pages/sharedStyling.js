@@ -30,7 +30,7 @@ export const Header = styled.h2`
     letter-spacing: clamp(1rem, 3vw, 2rem);
     text-transform: uppercase;
     margin-bottom: 3rem;
-    padding-left: 2rem;
+    padding-left: 2rem;    
 `;
 
 export const PSmall = styled.p`

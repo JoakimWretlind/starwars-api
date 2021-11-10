@@ -42,6 +42,7 @@ export const Card = styled.div`
     position: relative;
     background: #111;
     height: 30vh;
+    min-height: 18rem;
     width: 20rem;
     border-radius: .5rem;
     margin: auto;
@@ -51,8 +52,8 @@ export const Card = styled.div`
     align-items: center;
     padding: 2rem 0 1rem;
     box-shadow: 0 0 1rem rgba(161,216,232,.2);
-    @media screen and (min-width: 541px){
-        height: 25vh;
+    @media screen and (min-height: 541px){
+        height: 15vh;
         margin: .5rem 1rem;
     }
 `;
@@ -90,4 +91,7 @@ export const CardHeader = styled.h3`
     text-transform: uppercase;
     margin-bottom: 3rem;
     text-align: center;
+    @media screen and (min-width: 541px){
+        margin-bottom: 0rem;
+    }
 `;

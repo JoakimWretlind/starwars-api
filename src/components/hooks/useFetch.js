@@ -36,7 +36,7 @@ const useFetch = (url, items) => {
             }
         };
         fetchData()
-    }, [url, setErrors]);
+    }, [items, url, setErrors]);
 
     return { data, error }
 }

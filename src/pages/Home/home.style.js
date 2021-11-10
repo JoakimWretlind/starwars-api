@@ -58,6 +58,9 @@ export const HeaderContainer = styled.div`
     justify-content: center;
     align-items: center;
     margin: -10vh 0;
+    @media (min-width: 500px) and (max-height: 980px){
+        margin: -14vh 0 6rem;
+    }
 `;
 
 /** ButtonSection **/
@@ -79,13 +82,13 @@ export const ButtonContainer = styled.div`
 /** Fonts **/
 export const MainHeader = styled.h1`
     font-family: 'starjedi';
-    font-size: clamp(3rem, 24vw, 16rem);
+    font-size: clamp(3rem, 18vw, 15rem);
     line-height: .9;
     text-align: center;
-    margin: 10vh 0 0;
+    margin: 10vh 3rem 0;
     @media screen and (min-width: 541px){
         line-height: 1.15;
-        margin-bottom: 0;
+        margin-bottom: 0;        
     }
 `;
 
@@ -149,4 +152,3 @@ export const ArrowRight = styled(Link)`
        margin-bottom: -.5rem;
     }
 `;
-

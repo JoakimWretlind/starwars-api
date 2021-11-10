@@ -13,6 +13,7 @@ export const Section = styled.section`
     align-items: center;
     background: ${props => props.theme.black};
     &#characters{
+        position: absolute;
         background: linear-gradient(-15deg, #222, #d10000 );
     }
 `;

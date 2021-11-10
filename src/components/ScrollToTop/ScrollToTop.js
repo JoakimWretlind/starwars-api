@@ -20,8 +20,7 @@ const Scrolls = styled.span`
   transition: .3s ease-out;
   &:hover{
     background: radial-gradient(rgba(0,0,0,.7), rgba(255,255,255,.7));
-  }
-  `
+}`
 
 const FaSpaceShuttles = styled.img`
     padding-bottom: .2rem;

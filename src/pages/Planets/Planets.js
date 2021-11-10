@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import useFetch from '../../components/hooks/useFetch';
+// For animations
 import { motion } from 'framer-motion';
 import { gsap } from "gsap";
 // To easier handle numberformatting, I use numeral
 import numeral from 'numeral';
+// Images
 import yellowStar from '../../assets/images/yellowPlanet.png';
 import blueStar from '../../assets/images/bluePlanet.png';
 import jupiter from '../../assets/videos/jupiter.mp4';
@@ -14,9 +16,8 @@ import {
 } from '../sharedStyling';
 import { YellowPlanet, YellowImg, BluePlanet, BlueImg, JupiterVid } from './planets-style';
 
-
 const Planets = () => {
-    // info for our custom hook
+    // info for our custom hook- There are 61 planets in the api
     const { data: planets } = useFetch(`https://swapi.py4e.com/api/planets/`, 61);
     // animations
     const yellowRef = useRef(null);
@@ -64,7 +65,6 @@ const Planets = () => {
     const handleSort = (e) => {
         setSorted(e.target.value)
     };
-
 
     // sort according to the correct buttonClick.
     // if letter a is before letter b... and vice versa
@@ -162,7 +162,6 @@ const Planets = () => {
                 </MainSection>
                 <Pane />
             </Overlay>
-
         </Section>
     )
 }

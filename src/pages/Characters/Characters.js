@@ -1,4 +1,5 @@
 import { useState } from 'react';
+// animations
 import { motion } from 'framer-motion';
 import useFetch from '../../components/hooks/useFetch';
 import {
@@ -8,6 +9,7 @@ import {
 } from '../sharedStyling';
 
 const Characters = () => {
+    // there are 87 characters in the api
     const { data: people } = useFetch(`https://swapi.py4e.com/api/people/`, 87);
     const [searchTerm, setSearchTerm] = useState('');
     const [sorted, setSorted] = useState('');
@@ -34,15 +36,15 @@ const Characters = () => {
     });
 
     return (
-        <Section >
+        <Section id="characters">
             <Overlay
                 as={motion.div}
                 initial={{ scaleX: 0, x: "-60vw" }}
                 animate={{ scaleX: 1, x: "0" }}
                 exit={{ scaleX: 0, x: "-60vw" }}
-                transition={{ duration: 0.5 }} id="characters">
+                transition={{ duration: 0.5 }}>
                 <Pane />
-                <MainSection id="characters">
+                <MainSection >
                     <Header>Characters</Header>
                     <ButtonSection>
                         {/** In search, pass the key pressed as targe value */}
@@ -61,6 +63,7 @@ const Characters = () => {
                     </ButtonSection>
                     <HomeLink to="/">Get Back Home<RightShort /></HomeLink>
                     <ListSection >
+                        {/** Make items searchable **/}
                         {people.filter(item => {
                             if (searchTerm === "") {
                                 return item
